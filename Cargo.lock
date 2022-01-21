@@ -1780,6 +1780,7 @@ version = "0.1.0"
 dependencies = [
  "fatality-proc-macro",
  "thiserror",
+ "trybuild",
 ]
 
 [[package]]
