@@ -1805,6 +1805,7 @@ dependencies = [
 name = "fatality"
 version = "0.1.0"
 dependencies = [
+ "assert_matches",
  "fatality-proc-macro",
  "log",
  "thiserror",
@@ -6087,6 +6088,7 @@ version = "0.9.17"
 dependencies = [
  "assert_matches",
  "derive_more",
+ "fatality",
  "futures 0.3.21",
  "futures-timer",
  "lru 0.7.2",
@@ -6199,6 +6201,7 @@ dependencies = [
  "assert_matches",
  "derive_more",
  "env_logger 0.9.0",
+ "fatality",
  "futures 0.3.21",
  "futures-timer",
  "log",
@@ -6238,6 +6241,7 @@ dependencies = [
  "assert_matches",
  "async-trait",
  "derive_more",
+ "fatality",
  "futures 0.3.21",
  "futures-timer",
  "lazy_static",
@@ -6541,7 +6545,6 @@ name = "polkadot-node-core-parachains-inherent"
 version = "0.9.17"
 dependencies = [
  "async-trait",
- "fatality",
  "futures 0.3.21",
  "futures-timer",
  "polkadot-node-subsystem",
@@ -7292,6 +7295,7 @@ dependencies = [
  "arrayvec 0.5.2",
  "assert_matches",
  "derive_more",
+ "fatality",
  "futures 0.3.21",
  "futures-timer",
  "indexmap",
