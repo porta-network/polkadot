@@ -139,6 +139,7 @@ impl Contains<Call> for BaseFilter {
 	fn contains(call: &Call) -> bool {
 		match call {
 			// These modules are all allowed to be called by transactions:
+			Call::Sudo(_) |
 			Call::Democracy(_) |
 			Call::Council(_) |
 			Call::TechnicalCommittee(_) |
@@ -1295,6 +1296,11 @@ impl crowdloan::Config for Runtime {
 	type WeightInfo = weights::runtime_common_crowdloan::WeightInfo<Runtime>;
 }
 
+impl pallet_sudo::Config for Runtime {
+	type Event = Event;
+	type Call = Call;
+}
+
 parameter_types! {
 	// The average auction is 7 days long, so this will be 70% for ending period.
 	// 5 Days = 72000 Blocks @ 6 sec per block
@@ -1409,6 +1415,9 @@ construct_runtime! {
 
 		// Pallet for sending XCM.
 		XcmPallet: pallet_xcm::{Pallet, Call, Storage, Event<T>, Origin, Config} = 99,
+
+		// Sudo
+		Sudo: pallet_sudo::{Pallet, Call, Storage, Event<T>, Config<T>},
 	}
 }
 

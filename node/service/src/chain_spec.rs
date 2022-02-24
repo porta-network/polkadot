@@ -379,6 +379,7 @@ fn polkadot_staging_testnet_config_genesis(wasm_binary: &[u8]) -> polkadot::Gene
 		grandpa: Default::default(),
 		im_online: Default::default(),
 		authority_discovery: polkadot::AuthorityDiscoveryConfig { keys: vec![] },
+		sudo: polkadot::SudoConfig { key: Some(endowed_accounts[0].clone()) },
 		claims: polkadot::ClaimsConfig { claims: vec![], vesting: vec![] },
 		vesting: polkadot::VestingConfig { vesting: vec![] },
 		treasury: Default::default(),
@@ -1269,7 +1270,7 @@ pub fn polkadot_testnet_genesis(
 		AssignmentId,
 		AuthorityDiscoveryId,
 	)>,
-	_root_key: AccountId,
+	root_key: AccountId,
 	endowed_accounts: Option<Vec<AccountId>>,
 ) -> polkadot::GenesisConfig {
 	let endowed_accounts: Vec<AccountId> = endowed_accounts.unwrap_or_else(testnet_accounts);
@@ -1329,6 +1330,7 @@ pub fn polkadot_testnet_genesis(
 		grandpa: Default::default(),
 		im_online: Default::default(),
 		authority_discovery: polkadot::AuthorityDiscoveryConfig { keys: vec![] },
+		sudo: polkadot::SudoConfig { key: Some(root_key.clone()) },
 		claims: polkadot::ClaimsConfig { claims: vec![], vesting: vec![] },
 		vesting: polkadot::VestingConfig { vesting: vec![] },
 		treasury: Default::default(),
