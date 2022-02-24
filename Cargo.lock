@@ -6040,21 +6040,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8d0eef3571242013a0d5dc84861c3ae4a652e56e12adf8bdc26ff5f8cb34c94"
 
 [[package]]
-name = "polkadot"
-version = "0.9.17"
-dependencies = [
- "assert_cmd",
- "color-eyre",
- "nix",
- "parity-util-mem",
- "polkadot-cli",
- "polkadot-core-primitives",
- "remote-externalities",
- "tempfile",
- "tokio",
-]
-
-[[package]]
 name = "polkadot-approval-distribution"
 version = "0.9.17"
 dependencies = [
@@ -7558,6 +7543,21 @@ dependencies = [
  "cpufeatures 0.2.1",
  "opaque-debug 0.3.0",
  "universal-hash",
+]
+
+[[package]]
+name = "porta"
+version = "0.9.17"
+dependencies = [
+ "assert_cmd",
+ "color-eyre",
+ "nix",
+ "parity-util-mem",
+ "polkadot-cli",
+ "polkadot-core-primitives",
+ "remote-externalities",
+ "tempfile",
+ "tokio",
 ]
 
 [[package]]
