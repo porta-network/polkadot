@@ -22,7 +22,7 @@
 
 use pallet_transaction_payment::CurrencyAdapter;
 use runtime_common::{
-	auctions, claims, crowdloan, impls::DealWithFees, paras_registrar, prod_or_fast, slots,
+	auctions, claims, crowdloan, impls::DealWithFees, paras_registrar, paras_sudo_wrapper, prod_or_fast, slots,
 	BlockHashCount, BlockLength, BlockWeights, CurrencyToVote, OffchainSolutionLengthLimit,
 	OffchainSolutionWeightLimit, RocksDbWeight, SlowAdjustingFeeUpdate,
 };
@@ -173,6 +173,7 @@ impl Contains<Call> for BaseFilter {
 			Call::Paras(_) |
 			Call::Initializer(_) |
 			Call::ParaInherent(_) |
+			Call::ParasSudoWrapper(_) |
 			Call::Dmp(_) |
 			Call::Ump(_) |
 			Call::Hrmp(_) |
@@ -1234,6 +1235,8 @@ impl parachains_initializer::Config for Runtime {
 	type WeightInfo = weights::runtime_parachains_initializer::WeightInfo<Runtime>;
 }
 
+impl paras_sudo_wrapper::Config for Runtime {}
+
 parameter_types! {
 	// Mostly arbitrary deposit price, but should provide an adequate incentive not to spam reserve
 	// `ParaId`s.
@@ -1406,6 +1409,7 @@ construct_runtime! {
 		Ump: parachains_ump::{Pallet, Call, Storage, Event} = 59,
 		Hrmp: parachains_hrmp::{Pallet, Call, Storage, Event<T>, Config} = 60,
 		ParaSessionInfo: parachains_session_info::{Pallet, Storage} = 61,
+		ParasSudoWrapper: paras_sudo_wrapper::{Pallet, Call},
 
 		// Parachain Onboarding Pallets. Start indices at 70 to leave room.
 		Registrar: paras_registrar::{Pallet, Call, Storage, Event<T>} = 70,
