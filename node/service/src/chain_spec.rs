@@ -1647,7 +1647,7 @@ pub fn polkadot_development_config() -> Result<PolkadotChainSpec, String> {
 	let wasm_binary = polkadot::WASM_BINARY.ok_or("Polkadot development wasm not available")?;
 
 	Ok(PolkadotChainSpec::from_genesis(
-		"Development",
+		"Porta Relay Chain",
 		"dev",
 		ChainType::Development,
 		move || polkadot_development_config_genesis(wasm_binary),
