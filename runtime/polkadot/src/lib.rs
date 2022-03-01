@@ -108,7 +108,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 // Polkadot version identifier;
 /// Runtime version (Polkadot).
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("polkadot"),
+	spec_name: create_runtime_str!("porta"),
 	impl_name: create_runtime_str!("parity-polkadot"),
 	authoring_version: 0,
 	spec_version: 9170,
